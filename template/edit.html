@@ -1,0 +1,79 @@
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+  .form-container {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 350px;
+
+  }
+
+  h1{
+    text-align:center;
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+  .form{
+    display: flex;
+    flex-direction:column;
+  }
+  
+  input {
+    padding: 12px 16px;
+    border-radius:20px;
+    border:1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  input:focus{
+    border-color:#4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+    outline:none;
+  }
+  .button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.1s;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  .button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+
+</style>
+
+<div class="form-container">
+ <form method="POST" class="form">
+  <h1>Edit Book</h1>
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="brand" placeholder="Book type"><br>
+    <input type="number" name="quantity" placeholder="Books"><br>
+    <input type="number" step="0.01" name="price" placeholder="Price"><br>
+    <button type="submit" class="button">Update Books</button>
+</form>
+<a href="/">Back</a>
+</div>
