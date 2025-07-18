@@ -1,0 +1,194 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f2f2;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+
+  .add-button:hover {
+    background-color: #45a049;
+  }
+
+  form.search-form {
+    margin-top: 10px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+  }
+
+  th {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .actions a {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 0 4px;
+    color: white;
+    font-size: 14px;
+    display: inline-block;
+  }
+
+  .edit-btn {
+    background-color: #2196F3;
+  }
+
+  .delete-btn {
+    background-color: #f44336;
+    
+  }
+
+  .actions a:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 600px) {
+    .top-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    form.search-form {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+    }
+
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    td {
+      text-align: left;
+      padding: 10px;
+      position: relative;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      color: #555;
+    }
+
+    td:last-child {
+      padding-top: 20px;
+    }
+  }
+</style>
+
+<div class="container">
+  <h1>Book Inventory</h1>
+
+  <div class="top-bar">
+    <a href="/add" class="add-button">+ Add New Drink</a>
+    <form method="POST" class="search-form">
+    </form>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Book type</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for Book in books %}
+      <tr>
+        <td data-label="ID">{{ Book.id }}</td>
+        <td data-label="Name">{{ Book.name }}</td>
+        <td data-label="Brand">{{ Book.type }}</td>
+        <td data-label="Quantity">{{ Book.quantity }}</td>
+        <td data-label="Price"${{ Book.price }}</td>
+        <td class="actions" data-label="Actions">
+          <a href="/edit/{{ drink.id }}" class="edit-btn">Edit</a>
+          <a href="/delete/{{ drink.id }}" class="delete-btn">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
